@@ -15,8 +15,8 @@ else
   execServe="${execServe} -tls=false"
 fi
 
-if [[ ${HTTP} = false ]]; then
-  execServe="${execServe} -tls=false"
+if [[ ${HOMEPAGE} = false ]]; then
+  execServe="${execServe} -homepage=false"
 fi
 
 if [[ ${DEBUG} ]]; then
