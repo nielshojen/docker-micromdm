@@ -23,6 +23,8 @@ if [[ ${DEBUG} ]]; then
   execServe="${execServe} -http-debug"
 fi
 
+ls -l /certs
+
 echo "Starting using: $execServe"
 
 eval $execServe
