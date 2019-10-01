@@ -1,6 +1,6 @@
-FROM alpine:3.3
+FROM alpine
 
-ENV MICROMDM_VERSION=1.5.0
+ENV MICROMDM_VERSION=1.6.0
 
 COPY run.sh /run.sh
 
