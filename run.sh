@@ -8,11 +8,13 @@ if [[ ${API_KEY} ]]; then
 fi
 
 if [[ ${TLS} = true ]]; then
-  if [[ ! -z ${TLS_CERT} && ! -z ${TLS_KEY} && -e "/certs/${TLS_CERT}" && -e "/certs/${TLS_KEY}" ]]; then
-    execServe="${execServe} -tls-cert '${TLS_CERT}' -tls-key '${TLS_KEY}'"
-  fi
+  execServe="${execServe} -tls"
 else
   execServe="${execServe} -tls=false"
+fi
+
+if [[ ! -z ${TLS_CERT} && ! -z ${TLS_KEY} ]]; then
+  execServe="${execServe} -tls-cert '${TLS_CERT}' -tls-key '${TLS_KEY}'"
 fi
 
 if [[ ${HOMEPAGE} = false ]]; then
