@@ -19,6 +19,10 @@ if [[ ${HOMEPAGE} = false ]]; then
   execServe="${execServe} -homepage=false"
 fi
 
+if [[ ${WEBHOOK_URL} ]]; then
+  execServe="${execServe} -command-webhook-url ${WEBHOOK_URL}"
+fi
+
 if [[ ${DEBUG} ]]; then
   execServe="${execServe} -http-debug"
 fi
