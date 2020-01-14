@@ -8,6 +8,7 @@ ENV MICROMDM_REPO_DIR="/data/repo"
 COPY run.sh /run.sh
 
 RUN apk --no-cache add curl
+RUN apk --update add ca-certificates
 RUN curl -L https://github.com/micromdm/micromdm/releases/download/v${MICROMDM_VERSION}/micromdm_v${MICROMDM_VERSION}.zip -o /micromdm.zip
 RUN unzip /micromdm.zip
 RUN rm /micromdm.zip

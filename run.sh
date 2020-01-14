@@ -31,9 +31,9 @@ if [[ ${TLS_CERT} ]] && [[ ${TLS_KEY} ]]; then
   execServe="${execServe} -tls-cert '${TLS_CERT}' -tls-key '${TLS_KEY}'"
 fi
 
-if [[ ${HOMEPAGE} = false ]]; then
-  execServe="${execServe} -homepage=false"
-fi
+#if [[ "${HOMEPAGE}" = "false" ]]; then
+#  execServe="${execServe} -homepage=false"
+#fi
 
 if [[ ${WEBHOOK_URL} ]]; then
   execServe="${execServe} -command-webhook-url ${WEBHOOK_URL}"
