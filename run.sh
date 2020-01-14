@@ -27,7 +27,7 @@ else
   execServe="${execServe} -tls=false"
 fi
 
-if [[ ! -z ${TLS_CERT} && ! -z ${TLS_KEY} ]]; then
+if [[ ${TLS_CERT} ]] && [[ ${TLS_KEY} ]]; then
   execServe="${execServe} -tls-cert '${TLS_CERT}' -tls-key '${TLS_KEY}'"
 fi
 
@@ -47,7 +47,7 @@ echo "Starting using: $execServe"
 
 eval $execServe
 
-execMdmctl="/usr/local/bin/mdmctl config set -api-token ${API_KEY} -name production -server-url ${SERVER_URL}"
+execMdmctl="/usr/local/bin/mdmctl config set -api-token ${API_KEY} -name production -server-url ${MICROMDM_SERVER_URL}"
 
 echo "Configuring mdmctl using: $execMdmctl"
 
