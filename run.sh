@@ -58,3 +58,5 @@ execMdmctl="/usr/local/bin/mdmctl config switch -name production"
 echo "Switching config using: $execMdmctl"
 
 eval $execMdmctl
+
+sleep infinity
