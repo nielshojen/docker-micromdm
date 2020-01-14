@@ -1,6 +1,20 @@
 #!/bin/sh
 
-execServe="/usr/local/bin/micromdm serve -server-url='${SERVER_URL}' -filerepo /data/repo -config-path /data/config"
+# Make sure we have the needed folders
+if [[ ${MICROMDM_CONFIG_DIR} ]]; then
+  mkdir -p ${MICROMDM_CONFIG_DIR}
+fi
+
+if [[ ${MICROMDM_CERTS_DIR} ]]; then
+  mkdir -p ${MICROMDM_CERTS_DIR}}
+fi
+
+if [[ ${MICROMDM_REPO_DIR} ]]; then
+  mkdir -p ${MICROMDM_REPO_DIR}
+fi
+
+
+execServe="/usr/local/bin/micromdm serve -server-url='${MICROMDM_SERVER_URL}' -filerepo ${MICROMDM_REPO_DIR} -config-path ${MICROMDM_CONFIG_DIR}"
 
 # add api key if specified
 if [[ ${API_KEY} ]]; then
