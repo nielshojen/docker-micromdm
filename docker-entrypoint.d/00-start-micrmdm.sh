@@ -2,7 +2,7 @@
 
 echo "Waiting to make sure storage is up"
 
-sleep 10
+sleep 30
 
 # Make sure we have the needed folders
 if [[ ${MICROMDM_CONFIG_DIR} ]]; then
@@ -49,18 +49,4 @@ fi
 
 echo "Starting using: $execServe"
 
-eval $execServe &
-
-execMdmctl="/usr/local/bin/mdmctl config set -api-token ${API_KEY} -name production -server-url ${MICROMDM_SERVER_URL}"
-
-echo "Configuring mdmctl using: $execMdmctl"
-
-eval $execMdmctl
-
-execMdmctl="/usr/local/bin/mdmctl config switch -name production"
-
-echo "Switching config using: $execMdmctl"
-
-eval $execMdmctl
-
-sleep infinity
+$execServe &

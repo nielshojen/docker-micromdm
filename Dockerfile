@@ -5,7 +5,7 @@ ENV MICROMDM_CONFIG_DIR="/data/config"
 ENV MICROMDM_CERTS_DIR="/data/certs"
 ENV MICROMDM_REPO_DIR="/data/repo"
 
-COPY run.sh /run.sh
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 RUN apk --no-cache add curl
 RUN apk --update add ca-certificates
@@ -25,4 +25,4 @@ EXPOSE 80 443 8080
 
 VOLUME [${MICROMDM_CONFIG_DIR},${MICROMDM_CERTS_DIR},${MICROMDM_REPO_DIR}]
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
