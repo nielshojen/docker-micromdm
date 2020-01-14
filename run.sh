@@ -1,6 +1,6 @@
 #!/bin/sh
 
-execServe="/usr/local/bin/micromdm serve -server-url='${SERVER_URL}' -filerepo /repo -config-path /config"
+execServe="/usr/local/bin/micromdm serve -server-url='${SERVER_URL}' -filerepo /data/repo -config-path /data/config"
 
 # add api key if specified
 if [[ ${API_KEY} ]]; then

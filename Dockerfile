@@ -1,6 +1,9 @@
 FROM alpine
 
 ENV MICROMDM_VERSION=1.6.0
+ENV MICROMDM_CONFIG_DIR="/data/config"
+ENV MICROMDM_CERTS_DIR="/data/certs"
+ENV MICROMDM_REPO_DIR="/data/repo"
 
 COPY run.sh /run.sh
 
@@ -14,11 +17,11 @@ RUN rm -r /build
 RUN chmod a+x /usr/local/bin/micromdm
 RUN chmod a+x /usr/local/bin/mdmctl
 RUN apk del curl
-RUN mkdir /config /certs /repo
+RUN mkdir -p ${MICROMDM_CONFIG_DIR} ${MICROMDM_CERTS_DIR} ${MICROMDM_REPO_DIR}
 RUN chmod a+x /run.sh
 
 EXPOSE 80 443 8080
 
-VOLUME ["/config","/certs","/repo"]
+VOLUME [${MICROMDM_CONFIG_DIR},${MICROMDM_CERTS_DIR},${MICROMDM_REPO_DIR}]
 
 CMD ["/run.sh"]
