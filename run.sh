@@ -45,7 +45,7 @@ fi
 
 echo "Starting using: $execServe"
 
-eval $execServe &
+eval $execServe
 
 execMdmctl="/usr/local/bin/mdmctl config set -api-token ${API_KEY} -name production -server-url ${MICROMDM_SERVER_URL}"
 
@@ -53,4 +53,8 @@ echo "Configuring mdmctl using: $execMdmctl"
 
 eval $execMdmctl
 
-sleep infinity
+execMdmctl="/usr/local/bin/mdmctl config switch -name production"
+
+echo "Switching config using: $execMdmctl"
+
+eval $execMdmctl
