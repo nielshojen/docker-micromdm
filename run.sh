@@ -6,7 +6,7 @@ if [[ ${MICROMDM_CONFIG_DIR} ]]; then
 fi
 
 if [[ ${MICROMDM_CERTS_DIR} ]]; then
-  mkdir -p ${MICROMDM_CERTS_DIR}}
+  mkdir -p ${MICROMDM_CERTS_DIR}
 fi
 
 if [[ ${MICROMDM_REPO_DIR} ]]; then
