@@ -18,7 +18,7 @@ if [[ ${MICROMDM_REPO_DIR} ]]; then
 fi
 
 
-execServe="/usr/local/bin/micromdm serve -server-url='${MICROMDM_SERVER_URL}' -filerepo ${MICROMDM_REPO_DIR} -config-path ${MICROMDM_CONFIG_DIR}"
+execServe="/usr/local/bin/micromdm serve -server-url=${MICROMDM_SERVER_URL} -filerepo ${MICROMDM_REPO_DIR} -config-path ${MICROMDM_CONFIG_DIR}"
 
 # add api key if specified
 if [[ ${API_KEY} ]]; then
