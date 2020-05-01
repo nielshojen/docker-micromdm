@@ -5,6 +5,8 @@ ENV MICROMDM_CONFIG_DIR="/data/config"
 ENV MICROMDM_CERTS_DIR="/data/certs"
 ENV MICROMDM_REPO_DIR="/data/repo"
 
+VOLUME "/data"
+
 COPY docker-entrypoint.d /docker-entrypoint.d
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
@@ -24,9 +26,5 @@ RUN chmod +x /docker-entrypoint.d/*.sh
 RUN chmod a+x /docker-entrypoint.sh
 
 EXPOSE 80 443 8080
-
-VOLUME ${MICROMDM_CONFIG_DIR}
-VOLUME ${MICROMDM_CERTS_DIR}
-VOLUME ${MICROMDM_REPO_DIR}]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
