@@ -1,9 +1,9 @@
 #!/bin/sh
 
-sleep 40
+sleep 5
 
 if [[ ${TLS} = true ]]; then
-  SERVER_URL="http://localhost:443"
+  SERVER_URL="https://localhost:443"
 else
   SERVER_URL="http://localhost:8080"
 fi

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sleep 50
+sleep 5
 
 execMdmctl="/usr/local/bin/mdmctl config switch -name production"
 
