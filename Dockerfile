@@ -1,13 +1,13 @@
-FROM golang:latest as builder
+FROM golang:alpine as builder
+
+RUN apk add --no-cache git
+RUN git clone https://github.com/micromdm/micromdm.git /go/src/github.com/micromdm
 
 WORKDIR /go/src/github.com/micromdm/micromdm/
 
 ENV CGO_ENABLED=0 \
 	GOARCH=amd64 \
 	GOOS=linux
-
-RUN apk add --no-cache git
-RUN git clone https://github.com/micromdm/micromdm.git /go/src/project
 
 WORKDIR /go/src/project/
 
