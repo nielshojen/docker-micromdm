@@ -16,7 +16,6 @@ RUN make
 
 FROM alpine
 
-ENV MICROMDM_VERSION="1.7.1"
 ENV MICROMDM_CONFIG_DIR="/data/config"
 ENV MICROMDM_CERTS_DIR="/data/certs"
 ENV MICROMDM_REPO_DIR="/data/repo"
