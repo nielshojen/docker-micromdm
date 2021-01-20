@@ -6,7 +6,10 @@ ENV CGO_ENABLED=0 \
 	GOARCH=amd64 \
 	GOOS=linux
 
-COPY . .
+RUN apk add --no-cache git
+RUN git clone https://github.com/micromdm/micromdm.git /go/src/project
+
+WORKDIR /go/src/project/
 
 RUN make deps
 RUN make
