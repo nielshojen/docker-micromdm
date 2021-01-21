@@ -9,8 +9,6 @@ ENV CGO_ENABLED=0 \
 	GOARCH=amd64 \
 	GOOS=linux
 
-WORKDIR /go/src/project/
-
 RUN make deps
 RUN make
 
