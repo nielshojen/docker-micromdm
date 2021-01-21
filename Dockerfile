@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-RUN apk add --no-cache git
+RUN apk add --no-cache make git
 RUN git clone https://github.com/micromdm/micromdm.git /go/src/github.com/micromdm
 
 WORKDIR /go/src/github.com/micromdm/micromdm/
