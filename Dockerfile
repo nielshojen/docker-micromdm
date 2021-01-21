@@ -24,8 +24,8 @@ COPY docker-entrypoint.d /docker-entrypoint.d
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 RUN apk --update add ca-certificates
-COPY --from=builder /go/src/github.com/micromdm/micromdm/build/linux/micromdm /usr/bin/
-COPY --from=builder /go/src/github.com/micromdm/micromdm/build/linux/mdmctl /usr/bin/
+COPY --from=builder /go/src/github.com/micromdm/micromdm/build/linux/micromdm /usr/local/bin/
+COPY --from=builder /go/src/github.com/micromdm/micromdm/build/linux/mdmctl /usr/local/bin/
 RUN chmod a+x /usr/local/bin/micromdm
 RUN chmod a+x /usr/local/bin/mdmctl
 RUN mkdir -p ${MICROMDM_CONFIG_DIR} ${MICROMDM_CERTS_DIR} ${MICROMDM_REPO_DIR}
