@@ -2,14 +2,21 @@
 
 sleep 5
 
-if [[ ${TLS} = true ]]; then
-  SERVER_URL="https://localhost:443"
+execMdmctl="/usr/local/bin/mdmctl config set"
+
+if [[ ${MICROMDM_API_KEY} ]]; then
+  execMdmctl="${execMdmctl} -api-token ${MICROMDM_API_KEY}"
 else
-  SERVER_URL="http://localhost:8080"
+  execMdmctl="${execMdmctl} -api-token ${API_KEY}"
 fi
 
+execMdmctl="${execMdmctl} -name production"
 
-execMdmctl="/usr/local/bin/mdmctl config set -api-token ${API_KEY} -name production -server-url ${SERVER_URL}"
+if [[ ${MICROMDM_TLS} = true ]]; then
+  execMdmctl="${execMdmctl} -server-url https://localhost:443"
+else
+  execMdmctl="${execMdmctl} -server-url http://localhost:8080"
+fi
 
 echo "Configuring mdmctl using: $execMdmctl"
 
