@@ -2,11 +2,8 @@
 
 execServe="/usr/local/bin/micromdm serve"
 
-if [[ ${MICROMDM_LOG_TIME} = "truew" ]]; then
-  sleep 5
+if [[ ${MICROMDM_LOG_TIME} = "true" ]]; then
   execServe="${execServe} -log-time"
-  echo "Including timestamp in log messages: $execServe"
-  $execMdmctl
 fi
 
 $execServe &
