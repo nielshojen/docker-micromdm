@@ -31,6 +31,8 @@ Config using these environment variables:
 | MICROMDM_UDID_CERT_AUTH_WARN_ONLY | false            | warn only for udid cert mismatches                                                 |
 | MICROMDM_VALIDATE_SCEP_EXPIRATION | false            | validate that the SCEP certificate is still valid                                  |
 | MICROMDM_QUEUE                    | builtin          | command queue type                                                                 |
+| MICROMDM_DEVICE_SIGNATURE_SKEW    | 0                | Sets the allowable clock skew (in seconds) when verifying device signatures        |
+| MICROMDM_LOG_TIME                 | false            | Include timestamp in log messages                                                  |
 
 Optional automatic "upload" of APNS and Enrollment profile:
 
